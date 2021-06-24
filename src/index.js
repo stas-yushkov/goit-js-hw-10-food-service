@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import template from './templates/template.hbs';
+import template from './templates/main.hbs';
 import menuData from './menu.json';
 
 const body = document.querySelector('body');
@@ -20,7 +20,7 @@ window.onload = () => {
   if (!isThemeSet) {
     checkedThemeState = Theme.LIGHT;
     body.classList = checkedThemeState;
-    themeSwitcherRef.checked = false;
+    // themeSwitcherRef.checked = false;
   } else {
     checkedThemeState = isThemeSet;
     body.classList = checkedThemeState;
