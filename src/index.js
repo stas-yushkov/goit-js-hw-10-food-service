@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import template from './templates/main.hbs';
+import template from './templates/template.hbs';
 import menuData from './menu.json';
 
 const body = document.querySelector('body');
