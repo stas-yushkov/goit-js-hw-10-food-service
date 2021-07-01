@@ -8,33 +8,31 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-window.onload = () => {
-  const menuRef = document.querySelector('.js-menu');
-  menuRef.innerHTML = template(menuData);
+const menuRef = document.querySelector('.js-menu');
+menuRef.innerHTML = template(menuData);
 
-  const isThemeSet = localStorage.getItem('checkedThemeState');
-  const themeSwitcherRef = document.querySelector('#theme-switch-toggle');
+const isThemeSet = localStorage.getItem('checkedThemeState');
+const themeSwitcherRef = document.querySelector('#theme-switch-toggle');
 
-  let checkedThemeState;
+let checkedThemeState;
 
-  if (!isThemeSet) {
-    checkedThemeState = Theme.LIGHT;
-    body.classList = checkedThemeState;
-    // themeSwitcherRef.checked = false;
+if (!isThemeSet) {
+  checkedThemeState = Theme.LIGHT;
+  body.classList = checkedThemeState;
+  // themeSwitcherRef.checked = false;
+} else {
+  checkedThemeState = isThemeSet;
+  body.classList = checkedThemeState;
+
+  if (checkedThemeState === Theme.LIGHT) {
+    themeSwitcherRef.checked = false;
   } else {
-    checkedThemeState = isThemeSet;
-    body.classList = checkedThemeState;
-
-    if (checkedThemeState === Theme.LIGHT) {
-      themeSwitcherRef.checked = false;
-    } else {
-      themeSwitcherRef.checked = true;
-    }
+    themeSwitcherRef.checked = true;
   }
+}
 
-  themeSwitcherRef.addEventListener('change', e => {
-    checkedThemeState = !e.target.checked ? 'light-theme' : 'dark-theme';
-    body.classList = checkedThemeState;
-    localStorage.setItem('checkedThemeState', checkedThemeState);
-  });
-};
+themeSwitcherRef.addEventListener('change', e => {
+  checkedThemeState = !e.target.checked ? 'light-theme' : 'dark-theme';
+  body.classList = checkedThemeState;
+  localStorage.setItem('checkedThemeState', checkedThemeState);
+});
