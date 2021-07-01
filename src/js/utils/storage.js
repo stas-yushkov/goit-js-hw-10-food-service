@@ -4,6 +4,8 @@ const save = (key, value) => {
     localStorage.setItem(key, serializedState);
   } catch (error) {
     console.error('Set state error: ', error.message);
+    console.log(error.name);
+    console.log(error.message);
   }
 };
 
@@ -13,6 +15,8 @@ const load = key => {
     return serializedState === null ? undefined : JSON.parse(serializedState);
   } catch (error) {
     console.error('Get state error: ', error.message);
+    console.log(error.name);
+    console.log(error.message);
   }
 };
 
@@ -21,6 +25,8 @@ const remove = key => {
     localStorage.removeItem(key);
   } catch (error) {
     console.error('Remove state error: ', error.message);
+    console.log(error.name);
+    console.log(error.message);
   }
 };
 
